@@ -38,6 +38,7 @@
         </ul>
         <h3 class="text-muted">Hack Bulgaria World Cup</h3>
       </div>
+      <div id="results"></div>
     </div> <!-- /container -->
    
     <!-- Bootstrap core JavaScript
@@ -48,10 +49,10 @@
   <script src="bower_components/handlebars/handlebars.js"> </script>
   <script id="entry-template" type="text/x-handlebars-template">
   {{#each match}}
-    <div class="jumbotron" style="height: 250px; width: 700px;">
-      <h4> {{this.home_team.country}} vs {{this.away_team.country}}</h4>
-      <h5> {{this.home_team.goals}} : {{this.away_team.goals}}</h5>
-    </div>
+      <div class="jumbotron" style="height: 250px;">
+        <h4> {{this.home_team.country}} vs {{this.away_team.country}}</h4>
+        <h5> {{this.home_team.goals}} : {{this.away_team.goals}}</h5>
+      </div>
   {{/each}}
     
   </script>
