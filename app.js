@@ -7,15 +7,11 @@ $(document).ready(function() {
 		var source   = $("#entry-template").html();
 		var template = Handlebars.compile(source);
 
-		var context = {'match': data, num: "0"};
+		var context = {'match': data};
 		var html    = template(context);
 
-		console.log(html);
-		$('body').append(html);
+		$('#results').append(html);
 
 	});
 
 });
-
-
-
