@@ -15,6 +15,7 @@
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="bower_components/bootstrap/dist/js/bootstrap.min.js">
 
+
     <!-- Custom styles for this template -->
    
 
@@ -28,7 +29,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body class="wtf">
 
     <div class="container">
       <div class="header">
@@ -37,17 +38,21 @@
         </ul>
         <h3 class="text-muted">Hack Bulgaria World Cup</h3>
       </div>
-
-      <div class="jumbotron">
-  
-      </div>
     </div> <!-- /container -->
-
-
+   
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
   </body>
   <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/handlebars/handlebars.js"> </script>
+  <script id="entry-template" type="text/x-handlebars-template">
+  {{#each match}}
+    <div class="jumbotron" style="height: 250px;">
+    </div>
+  {{/each}}
+    
+  </script>
   <script type="text/javascript" src="app.js"></script>
+
 </html>
