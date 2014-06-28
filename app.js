@@ -1,6 +1,13 @@
 "use strict"
 
+
 $(document).ready(function() {
+	Handlebars.registerHelper('ifstatusfuture', function(val, options) 
+	{
+		var fnTrue=options.fn, fnFalse=options.inverse;
+		console.log(val);
+		return val === "future" ? fnTrue() : fnFalse();
+	});
 	$.getJSON( "http://worldcup.sfg.io/matches/today", function (matches) {
 		$.getJSON( "http://worldcup.sfg.io/teams/results", function (teams) {
 
@@ -32,6 +39,8 @@ $(document).ready(function() {
 			});
 		var context = {'match': matches};
 		var html    = template(context);
+
+			
 
 		$('#results').append(html);
 		$(".country_flag").popover();
