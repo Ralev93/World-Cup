@@ -26,9 +26,6 @@ $(document).ready(function() {
 				countries.push(match["away_team"]["country"]);
 				var match_time = moment(match["datetime"]);
 				match["datetime"] = match_time.format('h:mm a');
-				console.log(match["datetime"]);
-		  		//match["datetime"]=moment(match["datetime"].toString()).format('h:mm a');
-
 			});
 
 			teams.forEach(function (team) {
@@ -46,16 +43,11 @@ $(document).ready(function() {
 				}
 			});
 		var context = {'match': matches};
+		console.log(matches);
 		var html    = template(context);
-
-			
 
 		$('#results').append(html);
 		$(".country_flag").popover();
-
-
-
-
 		});
 	});
 
