@@ -5,7 +5,6 @@ $(document).ready(function() {
 	Handlebars.registerHelper('ifstatusfuture', function(val, options) 
 	{
 		var fnTrue=options.fn, fnFalse=options.inverse;
-		console.log(val);
 		return val === "future" ? fnTrue() : fnFalse();
 	});
 	$.getJSON( "http://worldcup.sfg.io/matches/today", function (matches) {
