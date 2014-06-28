@@ -30,7 +30,7 @@
     <![endif]-->
   </head>
 
-  <body style="text-align:center">
+  <body>
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
@@ -51,7 +51,7 @@
   <script id="entry-template" type="text/x-handlebars-template">
     {{#each match}}
       <div class="jumbotron" style="height: 250px;">
-        <h4 > {{this.home_team.country}} vs {{this.away_team.country}} </h4>
+        <h4> {{this.home_team.country}} vs {{this.away_team.country}} </h4>
         <h4> {{this.home_team.goals}} : {{this.away_team.goals}} </h4> 
         <img class="country_flag" src='flags/{{this.home_team.code }}.png' data-toggle="popover" data-placement="left" title="country" data-content="data info">
         <img class="country_flag" src='flags/{{this.away_team.code }}.png' data-toggle="popover" data-placement="right" title="country" data-content="data info">
