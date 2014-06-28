@@ -7,6 +7,12 @@ $(document).ready(function() {
 		var fnTrue=options.fn, fnFalse=options.inverse;
 		return val === "future" ? fnTrue() : fnFalse();
 	});
+
+	Handlebars.registerHelper('ifstatusinprogres', function(val, options) 
+	{
+		var fnTrue=options.fn, fnFalse=options.inverse;
+		return val === "in progress" ? fnTrue() : fnFalse();
+	});
 	$.getJSON( "http://worldcup.sfg.io/matches/today", function (matches) {
 		$.getJSON( "http://worldcup.sfg.io/teams/results", function (teams) {
 
@@ -14,17 +20,16 @@ $(document).ready(function() {
 			var template = Handlebars.compile(source);
 
 			var countries = [];
-			var match_time;
 
 			matches.forEach(function (match) {
 				countries.push(match["home_team"]["country"]);
 				countries.push(match["away_team"]["country"]);
-					match_time = moment(match["datetime"]);
-					console.log(match_time);
-					//match["datetime"] = match_time.tz('Bulgaria/Sofia').format('ha z');
-					//console.log(match["datetime"]);
-			});
+				var match_time = moment(match["datetime"]);
+				match["datetime"] = match_time.format('h:mm a');
+				console.log(match["datetime"]);
+		  		//match["datetime"]=moment(match["datetime"].toString()).format('h:mm a');
 
+			});
 
 			teams.forEach(function (team) {
 				var teamToAdd_index = $.inArray(team["country"], countries); // brazil
@@ -40,13 +45,15 @@ $(document).ready(function() {
 					});
 				}
 			});
-			var context = {'match': matches, 'teams': teams};
-			var html    = template(context);
+		var context = {'match': matches};
+		var html    = template(context);
 
 			
 
 		$('#results').append(html);
 		$(".country_flag").popover();
+
+
 
 
 		});
