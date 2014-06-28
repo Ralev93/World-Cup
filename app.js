@@ -14,10 +14,15 @@ $(document).ready(function() {
 			var template = Handlebars.compile(source);
 
 			var countries = [];
+			var match_time;
 
 			matches.forEach(function (match) {
 				countries.push(match["home_team"]["country"]);
 				countries.push(match["away_team"]["country"]);
+					match_time = moment(match["datetime"]);
+					console.log(match_time);
+					//match["datetime"] = match_time.tz('Bulgaria/Sofia').format('ha z');
+					//console.log(match["datetime"]);
 			});
 
 
