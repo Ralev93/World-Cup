@@ -29,6 +29,8 @@ $(document).ready(function() {
 					});
 				}
 			});
+			var context = {'match': matches, 'teams': teams};
+			var html    = template(context);
 
 		var context = {'match': matches, 'teams': teams};
 		var html    = template(context);
