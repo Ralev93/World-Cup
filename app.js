@@ -1,11 +1,6 @@
 "use strict"
 
 $(document).ready(function() {
-/*
-	$(function () {
-    $('#example').popover();
-});
-*/
 	$.getJSON( "http://worldcup.sfg.io/matches/today", function (matches) {
 		$.getJSON( "http://worldcup.sfg.io/teams/results", function (teams) {
 
@@ -38,23 +33,11 @@ $(document).ready(function() {
 				}
 			});
 
-			$("#results").append(html);
+		$('#results').append(html);
+		$(".country_flag").popover();
 
 
-			/*data.forEach(function (item) {
-				if (item["country"] === country) {
-					console.log (country," is in ",
-											 item["group_letter"],"group and has ",
-											 item["wins"]," wins, ", item["losses"]," losses" );
-				}
-			});
-*/
+		});
 	});
-
-
-	});
-
-
-//	getInfo("Costa Rica");
 
 });
