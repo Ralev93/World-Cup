@@ -30,8 +30,7 @@
     <![endif]-->
   </head>
 
-  <body>
-
+  <body style="text-align:center">
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
@@ -48,13 +47,14 @@
   </body>
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/handlebars/handlebars.js"> </script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script id="entry-template" type="text/x-handlebars-template">
     {{#each match}}
       <div class="jumbotron" style="height: 250px;">
-        <h4> {{this.home_team.country}} vs {{this.away_team.country}} </h4>
+        <h4 > {{this.home_team.country}} vs {{this.away_team.country}} </h4>
         <h4> {{this.home_team.goals}} : {{this.away_team.goals}} </h4> 
-        <img src='flags/{{this.home_team.code }}.png'>
-        <img src='flags/{{this.away_team.code }}.png'>
+        <img class="country_flag" src='flags/{{this.home_team.code }}.png' data-toggle="popover" data-placement="left" title="country" data-content="data info">
+        <img class="country_flag" src='flags/{{this.away_team.code }}.png' data-toggle="popover" data-placement="right" title="country" data-content="data info">
       </div>
     {{/each}}
   </script>
