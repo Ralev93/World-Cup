@@ -7,9 +7,6 @@ $(document).ready(function() {
 			var source   = $("#entry-template").html();
 			var template = Handlebars.compile(source);
 
-			var context = {'match': matches, 'teams': teams};
-			var html    = template(context);
-
 			var countries = [];
 
 			matches.forEach(function (match) {
@@ -33,8 +30,13 @@ $(document).ready(function() {
 				}
 			});
 
+		var context = {'match': matches, 'teams': teams};
+		var html    = template(context);
+
 		$('#results').append(html);
 		$(".country_flag").popover();
+
+		console.log(moment("2014-06-28T13:00:00.000-03:00").format(' h:mm a'));
 
 
 		});
