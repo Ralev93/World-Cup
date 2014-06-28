@@ -12,8 +12,9 @@ $(document).ready(function() {
 			matches.forEach(function (match) {
 				countries.push(match["home_team"]["country"]);
 				countries.push(match["away_team"]["country"]);
+		  	match["datetime"]=moment(match["datetime"].toString()).format('h:mm a');
 			});
-
+		console.log(matches);
 
 			teams.forEach(function (team) {
 				var teamToAdd_index = $.inArray(team["country"], countries); // brazil
@@ -29,16 +30,13 @@ $(document).ready(function() {
 					});
 				}
 			});
-			var context = {'match': matches, 'teams': teams};
-			var html    = template(context);
-
-		var context = {'match': matches, 'teams': teams};
+		var context = {'match': matches};
 		var html    = template(context);
 
 		$('#results').append(html);
 		$(".country_flag").popover();
 
-		console.log(moment("2014-06-28T13:00:00.000-03:00").format(' h:mm a'));
+
 
 
 		});
