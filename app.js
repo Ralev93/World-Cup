@@ -11,6 +11,7 @@ $(document).ready(function() {
 		var html    = template(context);
 
 		$('#results').append(html);
+		$(".country_flag").popover();
 
 	});
 });
