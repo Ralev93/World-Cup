@@ -48,12 +48,30 @@
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/handlebars/handlebars.js"> </script>
   <script src="bower_components/moment/moment.js"></script>
+  <script src="bower_components/moment-timezone/moment-timezone.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script id="entry-template" type="text/x-handlebars-template">
     {{#each match}}
-      <div class="jumbotron" style="height: 250px;">
-        <h4> {{this.home_team.country}} vs {{this.away_team.country}} </h4>
-        <h4> {{this.home_team.goals}} : {{this.away_team.goals}} </h4> 
+        <div class="jumbotron" style="height: 400px;">
+         <h2> {{this.home_team.country}} vs {{this.away_team.country}} </h2>
+          {{#if (status this "in progress") }}
+            <div class="progress progress-striped active">
+              <div class="progress-bar"  role="progressbar" aria-valuenow="{{percents this}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percents this}}%">
+                <span class="sr-only">{{percents this}}% Complete</span>
+              </div>
+            </div>
+            <h4> {{this.home_team.goals}} : {{this.away_team.goals}} </h4>
+          {{/if}}
+
+        {{#if (status this "future")}}
+          <p> The match starts at: {{startTime this}}  </p>
+        {{/if}}
+
+        {{#if (status this "completed")}}
+          <p> The match is over </p>
+          <h4> {{this.home_team.goals}} : {{this.away_team.goals}} </h4>
+        {{/if}}
+ 
         <img class="country_flag" src='flags/{{this.home_team.code }}.png' data-toggle="popover" data-placement="left" title={{this.home_team.country}} data-content="{{this.home_team.country}} is in group {{this.home_team.info.group_letter}} with {{this.home_team.info.wins}} win/s, {{this.home_team.info.losses}} losses and {{this.home_team.info.points}} point/s">
         <img class="country_flag" src='flags/{{this.away_team.code }}.png' data-toggle="popover" data-placement="right" title={{this.away_team.country}} data-content="{{this.away_team.country}} is in group {{this.away_team.info.group_letter}} with {{this.away_team.info.wins}} win/s, {{this.away_team.info.losses}} losses and {{this.away_team.info.points}} point/s">
       </div>
