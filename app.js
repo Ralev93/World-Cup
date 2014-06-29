@@ -5,7 +5,7 @@ var startTime = function (match) {
 	};
 
 Handlebars.registerHelper('startTime', function (match) {
-			return startTime(match);
+		return startTime(match);
 	});
 
 Handlebars.registerHelper('status', function (match, status) {
@@ -52,17 +52,11 @@ $(document).ready(function() {
 				}
 			});
 
+			var context = {'match': matches};
+			var html    = template(context);
 
-
-
-		var context = {'match': matches};
-		var html    = template(context);
-
-		$('#results').append(html);
-		$(".country_flag").popover();
-
-
-
+			$('#results').append(html);
+			$(".country_flag").popover();
 
 		});
 	});
