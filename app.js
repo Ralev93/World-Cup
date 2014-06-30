@@ -23,6 +23,7 @@ Handlebars.registerHelper('percents', function (match) {
 		return elapsedTime/90*100;
 });
 
+
 $(document).ready(function() {
 	$.getJSON( "http://worldcup.sfg.io/matches/today", function (matches) {
 		$.getJSON( "http://worldcup.sfg.io/teams/results", function (teams) {
@@ -31,6 +32,7 @@ $(document).ready(function() {
 			var template = Handlebars.compile(source);
 
 			var countries = [];
+			var match_time;
 
 			matches.forEach(function (match) {
 				countries.push(match["home_team"]["country"]);
@@ -52,12 +54,13 @@ $(document).ready(function() {
 				}
 			});
 
-			var context = {'match': matches};
-			var html    = template(context);
+		var context = {'match': matches};
+		var html    = template(context);
 
-			$('#results').append(html);
-			$(".country_flag").popover();
+			
 
+		$('#results').append(html);
+		$(".country_flag").popover();
 		});
 	});
 
