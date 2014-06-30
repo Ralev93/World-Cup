@@ -53,7 +53,7 @@
     {{#each match}}
       
       {{#ifstatusfuture this.status}}
-        This match will start at: {{match.datetime}}
+        This match will start at: {{this.datetime}}
       {{/ifstatusfuture}}
 
       {{#ifstatusinprogres this.status}}
