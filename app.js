@@ -20,15 +20,12 @@ $(document).ready(function() {
 			var template = Handlebars.compile(source);
 
 			var countries = [];
-			var match_time;
 
 			matches.forEach(function (match) {
 				countries.push(match["home_team"]["country"]);
 				countries.push(match["away_team"]["country"]);
-				match_time = moment(match["datetime"]);
-				match["datetime"] = match_time.tz('Bulgaria/Sofia').format('ha z');
-				console.log(match["datetime"]);
-		  		//match["datetime"]=moment(match["datetime"].toString()).format('h:mm a');
+				var match_time = moment(match["datetime"]);
+				match["datetime"] = match_time.format('h:mm a');
 			});
 
 			teams.forEach(function (team) {
@@ -46,16 +43,11 @@ $(document).ready(function() {
 				}
 			});
 		var context = {'match': matches};
+		console.log(matches);
 		var html    = template(context);
-
-			
 
 		$('#results').append(html);
 		$(".country_flag").popover();
-
-
-
-
 		});
 	});
 
