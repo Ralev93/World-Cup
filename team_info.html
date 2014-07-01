@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>World Cup 2014 - Team Info</title>
+
+	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bower_components/bootstrap/dist/js/bootstrap.min.js">
+</head>
+<body>
+	<div class="header">
+		<ul class="nav nav-pills pull-right">
+	    <li class="active"><a href="index.html">Home</a></li>
+	  </ul>
+	  <h3 class="text-muted">Hack Bulgaria World Cup</h3>
+	</div>
+  
+  <div class="dropdown">
+  <a data-toggle="dropdown" href="#">
+  	Choose a team to view info
+  	<span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+  	<div id="dropdown-li"></div>
+  </ul>
+</div>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/handlebars/handlebars.js"> </script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script id="entry-template" type="text/x-handlebars-template">
+  	{{#each team}}
+  		<li>
+  			<a href="{{this.country}}">{{this.country}}</a>
+  		</li>
+  	{{/each}}
+  </script>
+  <script type="text/javascript" src="team_info.js"></script>
+</body>
+</html>
