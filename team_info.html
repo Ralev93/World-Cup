@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>World Cup 2014 - Team Info</title>
+
+	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bower_components/bootstrap/dist/js/bootstrap.min.js">
+</head>
+<body>
+	<div class="header">
+		<ul class="nav nav-pills pull-right">
+	    <li class="active"><a href="index.html">Home</a></li>
+	  </ul>
+	  <h3 class="text-muted">Hack Bulgaria World Cup</h3>
+	</div>
+  
+  <div class="dropdown">
+	  <a id="drop4" href="#" data-toggle="dropdown" role="button">
+	  	Choose a team to view info
+	  	<span class="caret"></span>
+	  </a>
+	  <ul class="dropdown-menu" role="menu" aria-labelledby="drop4">
+	  	<div id="dropdown-li">
+	  		
+	  	</div>
+	  </ul>
+	</div>
+
+	<div id="contry_tables"></div>
+
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/handlebars/handlebars.js"> </script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script id="entry-template" type="text/x-handlebars-template">
+  	{{#each team}}
+  		<li>
+  			<a class="country" data-country="{{this.country}}">{{this.country}}</a>
+  		</li>
+  	{{/each}}
+  	{{#each team_result}}
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Contry</th>
+            <th>Games Played</th>
+            <th>Total Points</th>
+            <th>Wins</th>
+            <th>Loses</th>
+            <th>Goals</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>{{this.contry}}</tr>
+          <tr>{{this.games_played}}</tr>
+          <tr>{{this.points}}</tr>
+          <tr>{{this.wins}}</tr>
+          <tr>{{this.losses}}</tr>
+          <tr>{{this.goals_for}}</tr>
+        </tbody>
+      </table>
+    {{/each}}
+  	
+  </script>
+  <script type="text/javascript" src="team_info.js"></script>
+</body>
+</html>

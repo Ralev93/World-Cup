@@ -32,7 +32,6 @@ $(document).ready(function() {
 			var template = Handlebars.compile(source);
 
 			var countries = [];
-			var match_time;
 
 			matches.forEach(function (match) {
 				countries.push(match["home_team"]["country"]);
@@ -55,9 +54,8 @@ $(document).ready(function() {
 			});
 
 		var context = {'match': matches};
+		console.log(matches);
 		var html    = template(context);
-
-			
 
 		$('#results').append(html);
 		$(".country_flag").popover();
